@@ -49,7 +49,7 @@ tor_reinstall() {
         apt-get install tor -y
         echo "Torの再インストールが完了しました。"
 
-        echo "終了します。"
+        echo "もう一度スクリプトを実行してください。"
         exit 1
     else
         echo "インストールし直してください。"
