@@ -98,7 +98,7 @@ make
 time ./mkp224o -d ./onion -s -n 1 $domain
 file_path="/var/lib/tor/hidden_service"
 # ファイルが存在するか確認
-if [ ! -f "$file_path" ]; then
+if [ ! -d "$file_path" ]; then
     tor_reinstall
 fi
 rm /var/lib/tor/hidden_service/hostname /var/lib/tor/hidden_service/hs_ed25519_public_key /var/lib/tor/hidden_service/hs_ed25519_secret_key
@@ -152,7 +152,7 @@ if [ "$choich" = "y" ]; then
     "
 
     # ファイルに内容を追記
-    if [ -f "$file_path" ]; then
+    if [ -e "$file_path" ]; then
         echo "$additional_content" > "$file_path"
         echo "ファイル $file_path にサーバーの設定を記述しました。自分で編集してください。"
         echo "$web_file_path ディレクトリにサイトのコードを記述してください。"
