@@ -34,7 +34,7 @@ check_and_install_package() {
 }
 
 tor_reinstall() {
-    echo "torの設定が間違っている可能性があります"
+    echo "Torの設定が間違っている可能性があります"
     read -p "インストールし直しますか？ (y/n) : " choice
     if [ "$choice" = "y" ]; then
         # Uninstall Tor
@@ -52,8 +52,9 @@ tor_reinstall() {
         echo "もう一度スクリプトを実行してください。"
         exit 1
     else
-        echo "インストールし直してください。"
-        tor_reinstall
+        echo "本サービスを利用していただきありがとうございました。"
+	echo "Torをインストールしなおすことをおすすめします。"
+ 	exit 1
     fi
 }
 
