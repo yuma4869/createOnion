@@ -6,6 +6,16 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+# 引数の数をチェック
+if [ $# -ne 1 ]; then
+    echo "エラー: 取得したいドメイン名一つが指定されていません。"
+    echo "使い方: $0 <ドメイン名>"
+    exit 1
+fi
+
+# 引数を変数に格納
+domain="$1"
+
 # Check if a package is installed and install if not
 check_and_install_package() {
     local package_name="$1"
@@ -84,7 +94,7 @@ cd mkp224o
 make
 
 #独自onionドメイン取得
-time ./mkp224o -d ./onion -s -n 1 #ここに取得する文字列
+time ./mkp224o -d ./onion -s -n 1 $domain
 file_path="/var/lib/tor/hidden_service"
 # ファイルが存在するか確認
 if [ ! -f "$file_path" ]; then
