@@ -9,7 +9,7 @@ fi
 # 引数の数をチェック
 if [ $# -ne 1 ]; then
     echo "エラー: 取得したいドメイン名一つが指定されていません。"
-    echo "使い方: $0 <ドメイン名>"
+    echo "使い方: sudo sh onion.sh <ドメイン名>"
     exit 1
 fi
 
