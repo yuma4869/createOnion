@@ -96,6 +96,7 @@ cd mkp224o
 ./autogen.sh
 ./configure
 make
+./mkp224o
 
 #独自onionドメイン取得
 time ./mkp224o -d ./onion -s -n 1 $domain
