@@ -99,7 +99,7 @@ make
 ./mkp224o
 
 #独自onionドメイン取得
-time ./mkp224o -d ./onion -s -n 1 $domain
+/usr/bin/time ./mkp224o -d ./onion -s -n 1 $domain
 file_path="/var/lib/tor/hidden_service"
 # ファイルが存在するか確認
 if [ ! -d "$file_path" ]; then
