@@ -58,6 +58,15 @@ tor_reinstall() {
     fi
 }
 
+download_mkp224o() {
+    git clone https://github.com/cathugger/mkp224o
+    cd mkp224o
+    ./autogen.sh
+    ./configure
+    make
+    ./mkp224o
+}
+
 check_and_install_package "tor" "tor"
 check_and_install_package "git" "git"
 
@@ -90,16 +99,21 @@ service tor restart
 #必要なもののダウンロード
 apt install libsodium-dev autoconf
 
-#mkp224oのダウンロード
-git clone https://github.com/cathugger/mkp224o
-cd mkp224o
-./autogen.sh
-./configure
-make
-./mkp224o
+#mkp224oがすでにダウンロードされているか調べる
+directory_path="/path/to/mkp224o"
+
+if [ -d "$directory_path" ]; then
+    echo "mkp224oが既にダウンロードされているようです。"
+    read -p "mkp224oをダウンロードしなおしますか？ (y/n) : " choice
+    if [ "$choice" = "y" ]; then
+	    download_mkp224o
+    fi
+else
+    download_mkp224o
+fi
 
 #独自onionドメイン取得
-/usr/bin/time ./mkp224o -d ./onion -s -n 1 $domain
+time ./mkp224o -d ./onion4869 -s -n 1 $domain
 file_path="/var/lib/tor/hidden_service"
 # ファイルが存在するか確認
 if [ ! -d "$file_path" ]; then
@@ -108,7 +122,7 @@ fi
 rm /var/lib/tor/hidden_service/hostname /var/lib/tor/hidden_service/hs_ed25519_public_key /var/lib/tor/hidden_service/hs_ed25519_secret_key
 
 #独自onionドメイン設定
-base_directory="./onion"
+base_directory="./onion4869"
 
 # 指定されたディレクトリ内で最初に見つかった.onionディレクトリを処理
 onion_dir=$(find "$base_directory" -maxdepth 1 -type d -name "*.onion" -print -quit)
