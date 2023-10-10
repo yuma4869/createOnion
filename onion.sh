@@ -100,7 +100,7 @@ service tor restart
 apt install libsodium-dev autoconf
 
 #mkp224oがすでにダウンロードされているか調べる
-directory_path="/path/to/mkp224o"
+directory_path="mkp224o"
 
 if [ -d "$directory_path" ]; then
     echo "mkp224oが既にダウンロードされているようです。"
