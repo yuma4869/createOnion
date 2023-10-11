@@ -145,7 +145,7 @@ fi
 
 read -p "サーバーの設定をこちらでしますか？onionドメインは取得しているのでポートは80(http)、servernameはcat /var/lib/tor/hidden_service/hostnameで確認できます。 (y/n) : " choice
 
-if [ "$choich" = "y" ]; then
+if [ "$choice" = "y" ]; then
 
     #apacheサーバーの設定をしてアクセスできるようにする
     check_and_install_package "apache2" "apache2"
