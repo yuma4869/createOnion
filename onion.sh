@@ -106,6 +106,7 @@ if [ -d "$directory_path" ]; then
     echo "mkp224oが既にダウンロードされているようです。"
     read -p "mkp224oをダウンロードしなおしますか？ (y/n) : " choice
     if [ "$choice" = "y" ]; then
+        rm -d mkp224o
 	    download_mkp224o
     fi
 else
