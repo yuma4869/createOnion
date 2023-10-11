@@ -113,7 +113,7 @@ else
 fi
 
 #独自onionドメイン取得
-time ./mkp224o -d ./onion4869 -s -n 1 $domain
+./mkp224o -d onion4869 -s -n 1 $domain
 file_path="/var/lib/tor/hidden_service"
 # ファイルが存在するか確認
 if [ ! -d "$file_path" ]; then
@@ -122,7 +122,7 @@ fi
 rm /var/lib/tor/hidden_service/hostname /var/lib/tor/hidden_service/hs_ed25519_public_key /var/lib/tor/hidden_service/hs_ed25519_secret_key
 
 #独自onionドメイン設定
-base_directory="./onion4869"
+base_directory="onion4869"
 
 # 指定されたディレクトリ内で最初に見つかった.onionディレクトリを処理
 onion_dir=$(find "$base_directory" -maxdepth 1 -type d -name "*.onion" -print -quit)
