@@ -163,13 +163,7 @@ if [ "$choich" = "y" ]; then
     touch $file_path
 
     # 追記する内容を指定
-    additional_content="
-    <VirtualHost *:80>
-        ServerName $onion_name
-        DocumentRoot $web_file_path
-        # その他の設定...各自で追加してください
-    </VirtualHost>
-    "
+    additional_content="<VirtualHost *:80>\nServerName $onion_name\nDocumentRoot $web_file_path\n# その他の設定...各自で追加してください\n</VirtualHost>"
 
     # ファイルに内容を追記
     if [ -e "$file_path" ]; then
