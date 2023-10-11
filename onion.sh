@@ -158,7 +158,7 @@ if [ "$choice" = "y" ]; then
 
     fi
 
-    web_file_path="/var/www/onion"
+    web_file_path="/var/www/onion4869"
 
     touch $file_path
 
@@ -173,7 +173,7 @@ if [ "$choice" = "y" ]; then
         mkdir $web_file_path
         echo "hello world" > $web_file_path/index.html
         echo "今回はテストで $web_file_path/index.html に「hello world」と記述しました。"
-        echo -e "\e[1;31mサイトを有効化する際はstart.shを実行してください。\e[0m"
+        echo "\e[1;31mサイトを有効化する際はstart.shを実行してください。\e[0m"
     else
         echo "指定されたファイルが存在しません。"
     fi
