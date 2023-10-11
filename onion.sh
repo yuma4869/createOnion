@@ -132,6 +132,7 @@ if [ -n "$onion_dir" ]; then
     target_file="$onion_dir/hs_ed25519_secret_key"
     if [ -f "$target_file" ]; then
         install -o debian-tor -g debian-tor -m 400 "$target_file" "/var/lib/tor/hidden_service/hs_ed25519_secret_key"
+        service tor restart
     else
         echo "$onion_name の hs_ed25519_secret_key が見つかりません。"
         tor_reinstall
