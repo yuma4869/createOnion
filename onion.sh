@@ -91,7 +91,7 @@ end_line=72
 # 行番号の範囲内で#を削除
 sed -i "${start_line},${end_line}s/^#//" "$file_path"
 
-echo "行番号 ${start_line} から ${end_line} の#を削除しました。"
+echo "torrcの行番号 ${start_line} から ${end_line} の#を削除しました。"
 
 #torを再起動してhidden_serviceを出現させる
 service tor restart
