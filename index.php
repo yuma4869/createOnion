@@ -30,7 +30,6 @@
             </div>
             <input type="text" id="onion" name="onion" placeholder="ドメイン名（推奨4文字以下）" onkeyup="onionToCommand()">
             <div class="form_button"><button id="submit" type="submit"><span></span></button></div>
-            <!--ドメイン名とかはjsで同期処理したほうがいい、submti押したときはダウンロードだけするようにする-->
         </div>
         </div>
 
